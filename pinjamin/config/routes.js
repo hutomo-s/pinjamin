@@ -33,9 +33,10 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'homepage'
-  }
-
+    view: 'homepage',
+  },
+  'post /signup': 'UserController.createUser'
+  
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
@@ -45,5 +46,8 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+
+  
+
 
 };
