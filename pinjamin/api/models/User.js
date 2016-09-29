@@ -2,25 +2,18 @@ var Waterline = require('waterline');
 
 var User = Waterline.Collection.extend({
 
+  identity: 'user',  
+  connection:'mysql',
+  tableName:'user',
+
   attributes: {
-
-    connection:'mysql',
-    tableName:'user',
-
-    id: {
-      type: 'int',
-      required: true,
-      primaryKey: true,
-      unique: true
-    },
-
     name: {
       type: 'string',
       required: true
     },
 
     email: {
-      type: 'string',
+      type: 'email',
       required: true
     },
 
@@ -45,3 +38,5 @@ var User = Waterline.Collection.extend({
     }
   }
 });
+
+module.exports = User;
