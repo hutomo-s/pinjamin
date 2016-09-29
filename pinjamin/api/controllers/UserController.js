@@ -3,12 +3,12 @@ module.exports = {
     var params = req.params.all();
 
     User.create({ 
-      name: req.param('name'),
-      email: req.param('email'),
-      mobile: req.param('mobile'), 
-      address: req.param('address'),
-      username: req.param('username'), 
-      password: req.param('password'),
+      name: params.name,
+      email: params.email,
+      mobile: params.mobile, 
+      address: params.address,
+      username: params.username, 
+      password: params.password
     }).exec(function (err,newUser){
 
       if (err) {
