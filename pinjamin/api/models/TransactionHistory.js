@@ -35,7 +35,7 @@ var User = Waterline.Collection.extend({
     },
 
     period_month: {
-      type: 'string',
+      type: 'date',
       required: true
     },
 
@@ -45,7 +45,7 @@ var User = Waterline.Collection.extend({
     },
 
     interest_rate: {
-      type: 'date',
+      type: 'int',
       required: true
     },
 
@@ -60,7 +60,7 @@ var User = Waterline.Collection.extend({
     },
     
     va_number: {
-      type: 'int',
+      type: 'string',
       required: true
     }
   }
