@@ -6,7 +6,10 @@ var appState = {
 // App
 var App = React.createClass({
   getInitialState: function(){
-    this.setState(appState);
+    this.setState({
+      activeWindow: appState.activeWindow,
+      user: appState.user
+    });
   },
   updateState: function(){
     this.setState(appState);
