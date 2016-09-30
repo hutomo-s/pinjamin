@@ -55,5 +55,7 @@ process.chdir(__dirname);
 
 
   // Start server
-  sails.lift(rc('sails'));
+  sails.lift({
+    appName: 'Pinjamin'
+  }, rc('sails'));
 })();
