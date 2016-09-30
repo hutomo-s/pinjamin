@@ -12,7 +12,7 @@ var App = React.createClass({
     this.setState(appState);
   },
   render: function(){
-    var activeContent;
+    var activeContent = '';
     if (this.state.activeWindow === 0) {
       activeContent = <Dashboard user={this.state.user} update={this.updateState}/>
     } else if (this.state.activeWindow === 1) {
@@ -21,8 +21,6 @@ var App = React.createClass({
       activeContent = <FormPinjam user={this.state.user} update={this.updateState}/>
     } else if (this.state.activeWindow === 3) {
       activeContent = <RequestList user={this.state.user} update={this.updateState}/>
-    } else {
-      activeContent = "";
     }
 
     return(
