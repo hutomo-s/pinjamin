@@ -1,6 +1,28 @@
 var appState = {
   activeWindow: 0,
-  user: {}
+  user: {
+    credit: '10000',
+    debt: '100',
+    debtors: [
+      {
+        picture: '/assets/img/a.jpg',
+        name: 'a',
+        debt: '5000'
+      },
+      {
+        picture: '/assets/img/b.jpg',
+        name: 'b',
+        debt: '5000'
+      }
+    ],
+    creditors: [
+      {
+        picture: '/assets/img/c.jpg',
+        name: 'c',
+        credit: '500'
+      }
+    ]
+  }
 }
 
 // App
