@@ -35,8 +35,16 @@ module.exports.routes = {
   '/': {
     view: 'homepage',
   },
-  'post /signup': 'UserController.createUser'
   
+    'post /signup': 'UserController.createUser',
+    'post /request-loan': 'LoanrequestController.createRequest',
+    'post /list-kerabat': 'ConnectionController.listConnections',
+    'post /confirm-loan': 'LoanrequestController.confirmRequest',
+    'post /list-all-loan': 'LoanrequestController.listLoanRequest',
+    'post /get-loan': 'LoanrequestController.getLoanRequest'    
+
+  
+    
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

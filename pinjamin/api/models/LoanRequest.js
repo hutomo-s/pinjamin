@@ -1,47 +1,46 @@
-var Waterline = require('waterline');
+/**
+ * Loanrequest.js
+ *
+ * @description :: TODO: You might write a short summary of how this model works and what it represents here.
+ * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
+ */
 
-var User = Waterline.Collection.extend({
+module.exports = {
 
   attributes: {
 
-    connection:'mysql',
-    tableName:'loanrequest',
-
-    id: {
-      type: 'int',
-      required: true,
-      primaryKey: true,
-      unique: true
-    },
-
     lender_id: {
-      type: 'int',
-      required: true
+      type: 'integer'
     },
 
     lendee_id: {
-      type: 'int',
+      type: 'integer',
       required: true
     },
 
     amount: {
-      type: 'int',
+      type: 'integer',
       required: true
     },
 
     period_month: {
-      type: 'date',
+      type: 'integer',
       required: true
     },
 
     credit_score: {
-      type: 'int',
-      required: true
+      type: 'string'
     },
 
     purpose: {
       type: 'string',
+      required:true
+    },
+
+    loan_status: {
+      type: 'integer',
       required: true
     }
   }
-});
+};
+
