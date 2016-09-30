@@ -42,14 +42,6 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(1);
-	(function webpackMissingModule() { throw new Error("Cannot find module \"stop\""); }());
-
-
-/***/ },
-/* 1 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -263,17 +255,17 @@
 	            React.createElement(
 	              'div',
 	              { className: 'media-left' },
-	              React.createElement('img', { className: 'media-object', src: debtor.picture }),
+	              React.createElement('img', { className: 'media-object', src: debtor.picture })
+	            ),
+	            React.createElement(
+	              'div',
+	              { className: 'media-body' },
 	              React.createElement(
-	                'div',
-	                { className: 'media-body' },
-	                React.createElement(
-	                  'h4',
-	                  { className: 'media-heading' },
-	                  debtor.name
-	                ),
-	                debtor.debt
-	              )
+	                'h4',
+	                { className: 'media-heading' },
+	                debtor.name
+	              ),
+	              debtor.debt
 	            )
 	          )
 	        )
@@ -305,17 +297,17 @@
 	            React.createElement(
 	              'div',
 	              { className: 'media-left' },
-	              React.createElement('img', { className: 'media-object', src: creditor.picture }),
+	              React.createElement('img', { className: 'media-object', src: creditor.picture })
+	            ),
+	            React.createElement(
+	              'div',
+	              { className: 'media-body' },
 	              React.createElement(
-	                'div',
-	                { className: 'media-body' },
-	                React.createElement(
-	                  'h4',
-	                  { className: 'media-heading' },
-	                  creditor.name
-	                ),
-	                creditor.credit
-	              )
+	                'h4',
+	                { className: 'media-heading' },
+	                creditor.name
+	              ),
+	              creditor.credit
 	            )
 	          )
 	        )
@@ -329,10 +321,224 @@
 	  }
 	});
 
-	// // Kerabat
-	// var Kerabat = React.createClass({
+	// Kerabat
+	var Kerabat = React.createClass({
+	  displayName: 'Kerabat',
 
-	// })
+	  getInitialState: function getInitialState() {
+	    return this.props.user.kerabat;
+	  },
+	  componentWillMount: function componentWillMount() {
+	    $.ajax({
+	      url: 'list-kerabat',
+	      data: {
+	        user_id: this.props.user.user_id
+	      },
+	      cache: false,
+	      type: POST,
+	      success: function success(event) {
+	        appState.user.kerabat = jQuery.parseJSON(event);
+	        this.props.update();
+	      }
+	    });
+	  },
+	  handleClick: function handleClick() {
+	    //TODO send ajax
+	  },
+	  render: function render() {
+	    var kerabats = this.props.user.kerabat.map(function (kerabat) {
+	      var details = '';
+	      if (kerabat.opened === true) {
+	        // print details
+	      }
+	      return React.createElement(
+	        'div',
+	        { className: 'col-xs-12' },
+	        React.createElement(
+	          'div',
+	          { className: 'row kerabat' },
+	          React.createElement(
+	            'div',
+	            { className: 'media' },
+	            React.createElement(
+	              'div',
+	              { className: 'media-left' },
+	              React.createElement('img', { className: 'media-object', src: kerabat.picture })
+	            ),
+	            React.createElement(
+	              'div',
+	              { className: 'media-body' },
+	              React.createElement(
+	                'h4',
+	                { className: 'media-header' },
+	                kerabat.name
+	              ),
+	              kerabat.email
+	            )
+	          )
+	        )
+	      );
+	    });
+
+	    return { kerabats: kerabats };
+	  }
+	});
+
+	// FormPinjam
+	var FormPinjam = React.createClass({
+	  displayName: 'FormPinjam',
+
+	  handleSubmit: function handleSubmit(event) {
+	    // TODO
+	  },
+	  componentWillMount: function componentWillMount() {
+	    $.ajax({
+	      url: 'list-kerabat',
+	      data: {
+	        user_id: this.props.user.user_id
+	      },
+	      cache: false,
+	      type: POST,
+	      success: function success(event) {
+	        appState.user.kerabat = jQuery.parseJSON(event);
+	        this.props.update();
+	      }
+	    });
+	  },
+	  render: function render() {
+	    var kerabats = this.props.user.kerabat.map(function (kerabat) {
+	      return React.createElement(
+	        'option',
+	        { value: kerabat.user_id },
+	        kerabat.name
+	      );
+	    });
+	    return React.createElement(
+	      'div',
+	      { className: 'col-xs-12' },
+	      React.createElement(
+	        'div',
+	        { className: 'row form-container' },
+	        React.createElement(
+	          'form',
+	          null,
+	          React.createElement(
+	            'label',
+	            { 'for': 'jumlah-saldo' },
+	            'Jumlah Saldo'
+	          ),
+	          React.createElement(
+	            'div',
+	            { className: 'input-group' },
+	            React.createElement('input', { type: 'text', className: 'form-control', id: 'jumlah-saldo', placeholder: 'Jumlah Saldo' })
+	          ),
+	          React.createElement(
+	            'label',
+	            { 'for': 'tenor' },
+	            'Tenor'
+	          ),
+	          React.createElement(
+	            'div',
+	            { className: 'input-group' },
+	            React.createElement('input', { type: 'number', className: 'form-control', id: 'tenor' }),
+	            React.createElement(
+	              'span',
+	              { 'class': 'input-group-addon' },
+	              'bulan'
+	            )
+	          ),
+	          React.createElement(
+	            'label',
+	            { 'for': 'kerabat' },
+	            'Kerabat'
+	          ),
+	          React.createElement(
+	            'div',
+	            { className: 'input-group' },
+	            React.createElement(
+	              'select',
+	              { className: 'form-control', id: 'kerabat' },
+	              kerabats
+	            )
+	          ),
+	          React.createElement(
+	            'label',
+	            { 'for': 'alasan' },
+	            'Alasan Meminjam'
+	          ),
+	          React.createElement(
+	            'div',
+	            { className: 'input-group' },
+	            React.createElement('textarea', { className: 'form-control', id: 'alasan' })
+	          ),
+	          React.createElement(
+	            'button',
+	            { type: 'button', 'class': 'btn btn-default', id: 'cancel' },
+	            'Batal'
+	          ),
+	          React.createElement(
+	            'button',
+	            { type: 'submit', 'class': 'btn btn-default', id: 'submit' },
+	            'Pinjam'
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	// Requests
+	var Requests = React.createClass({
+	  displayName: 'Requests',
+
+	  componentWillMount: function componentWillMount() {
+	    $.ajax({
+	      url: 'list-all-loan',
+	      data: {
+	        user_id: this.props.user.user_id
+	      },
+	      cache: false,
+	      type: POST,
+	      success: function success(event) {
+	        appState.user.requests = jQuery.parseJSON(event);
+	        this.props.update();
+	      }
+	    });
+	  },
+	  render: function render() {
+	    var requests = this.props.user.requests.map(function (request) {
+	      return React.createElement(
+	        'div',
+	        { className: 'row requester' },
+	        React.createElement(
+	          'div',
+	          { className: 'media' },
+	          React.createElement(
+	            'div',
+	            { className: 'media-left' },
+	            React.createElement('img', { 'class': 'media-object', src: request.user.picture })
+	          ),
+	          React.createElement(
+	            'div',
+	            { 'class': 'media-body' },
+	            React.createElement(
+	              'h4',
+	              { classname: 'media-heading' },
+	              request.user.name
+	            ),
+	            request.date
+	          )
+	        )
+	      );
+	    });
+
+	    return React.createElement(
+	      'div',
+	      { className: 'col-xs-12' },
+	      requests
+	    );
+	  }
+	});
 
 	// Render 
 	ReactDOM.render(React.createElement(App, null), document.getElementById('app-root'));
