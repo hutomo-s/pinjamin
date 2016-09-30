@@ -194,7 +194,7 @@
 	            { className: 'panel panel-success' },
 	            React.createElement(
 	              'div',
-	              { className: 'panel-heading' },
+	              { className: 'panel-heading credit-display' },
 	              'Piutang'
 	            ),
 	            React.createElement(
@@ -217,7 +217,7 @@
 	            { className: 'panel panel-warning' },
 	            React.createElement(
 	              'div',
-	              { className: 'panel-heading' },
+	              { className: 'panel-heading debt-display' },
 	              'Hutang'
 	            ),
 	            React.createElement(
@@ -325,9 +325,6 @@
 	var Kerabat = React.createClass({
 	  displayName: 'Kerabat',
 
-	  getInitialState: function getInitialState() {
-	    return this.props.user.kerabat;
-	  },
 	  componentWillMount: function componentWillMount() {
 	    $.ajax({
 	      url: 'list-kerabat',
@@ -488,8 +485,8 @@
 	});
 
 	// Requests
-	var Requests = React.createClass({
-	  displayName: 'Requests',
+	var RequestList = React.createClass({
+	  displayName: 'RequestList',
 
 	  componentWillMount: function componentWillMount() {
 	    $.ajax({
