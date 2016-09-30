@@ -1,4 +1,4 @@
-.navbar {
+.navbar.navbar-inverse {
   margin-bottom: 0;
 }
 
@@ -6,11 +6,11 @@
   background: #2196f3;
 }
 
-.list-group-item {
+#sidebar .list-group-item {
   background-color: #2196f3;
   border: 0;
 }
 
-.list-group-item-active {
+#sidebar .list-group-item-active {
   background-color: #fff;
 }
