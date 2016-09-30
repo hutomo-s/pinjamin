@@ -29,12 +29,17 @@ module.exports = {
     },
 
     credit_score: {
-      type: 'int',
-      required: true
+      type: 'integer'
     },
 
     purpose: {
-      type: 'string'
+      type: 'string',
+      required:true
+    },
+
+    loan_status: {
+      type: 'string',
+      required: true
     }
   }
 };

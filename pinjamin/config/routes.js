@@ -37,7 +37,9 @@ module.exports.routes = {
   },
   
   'post /signup': 'UserController.createUser',
-  'post /request-loan': 'LoanrequestController.createRequest'
+  'post /request-loan': 'LoanrequestController.createRequest',
+  'post /list-kerabat': 'ConnectionController.listConnections',
+  'post /confirm-loan': 'LoanrequestController.confirmRequest'
   
   /***************************************************************************
   *                                                                          *
