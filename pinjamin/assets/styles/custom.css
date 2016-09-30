@@ -26,3 +26,11 @@
 .money-panel {
   margin-top: 15px;
 }
+
+.credit-display {
+  background-color: #4caf50;
+}
+
+.debt-display {
+  background-color: #ff9800;
+}
