@@ -1,0 +1,631 @@
+{
+	"id": "8dc07b14-cc31-7833-cf67-4f15588485c4",
+	"name": "Pinjamin copy",
+	"description": "",
+	"order": [
+		"9390e9ec-cb94-8c89-05be-18b21c27ce00",
+		"ba22d1bc-c077-b9c9-944a-e84e5d8bd84d",
+		"d61693db-7200-769d-b057-dd278d26f6ac"
+	],
+	"folders": [
+		{
+			"id": "3f7576c0-5afc-5be2-6f8c-e1dc1b2fdb5e",
+			"name": "Connection",
+			"description": "",
+			"order": [
+				"f88ef26e-4981-ab6f-8851-4755915b53be",
+				"ab786485-a3ac-d012-2252-85058e7d3145"
+			],
+			"owner": "264705"
+		},
+		{
+			"id": "880a3669-0399-1b64-399c-6a9a2f6fcd57",
+			"name": "Loan request",
+			"description": "",
+			"order": [
+				"24081034-70c7-a5d1-fd8b-732b4ab374da",
+				"fbc66ee4-5775-9f9f-871d-817a8b1f63fb",
+				"a242360e-8645-b628-4ea2-0e9e45fed9b8",
+				"09dc1164-ba4d-cc8a-e0a5-0f2f6d0f99c8",
+				"34469cfc-5295-d042-71f0-fd61e16d25cd",
+				"37b064d4-5caa-a491-4f7a-fedc757d2fad"
+			],
+			"owner": "264705"
+		},
+		{
+			"id": "f1bfd5c6-25e1-c88b-3edd-6af97ef336a6",
+			"name": "User",
+			"description": "",
+			"order": [
+				"9aaa16cb-2637-0857-214d-579e2c20120e",
+				"8799f4c4-43e0-14d4-ca29-67c7485a34a6"
+			],
+			"owner": "264705"
+		}
+	],
+	"timestamp": 1475022585918,
+	"owner": "264705",
+	"public": false,
+	"published": false,
+	"hasRequests": true,
+	"requests": [
+		{
+			"id": "09dc1164-ba4d-cc8a-e0a5-0f2f6d0f99c8",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://paramakomputer.com:1337/confirm-loan",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "loan_id",
+					"value": "26",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1475263054860,
+			"name": "Confirm loan request",
+			"description": "",
+			"collectionId": "8dc07b14-cc31-7833-cf67-4f15588485c4",
+			"responses": []
+		},
+		{
+			"id": "24081034-70c7-a5d1-fd8b-732b4ab374da",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://paramakomputer.com:1337/loanrequest/36",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "lender_id",
+					"value": "10",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "lendee_id",
+					"value": "15",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "10000001",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "period_month",
+					"value": "6",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "purpose",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "",
+					"value": "",
+					"type": "text",
+					"enabled": false
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1475262968859,
+			"name": "Get loan request",
+			"description": "",
+			"collectionId": "8dc07b14-cc31-7833-cf67-4f15588485c4",
+			"responses": []
+		},
+		{
+			"id": "34469cfc-5295-d042-71f0-fd61e16d25cd",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://paramakomputer.com:1337/get-loan",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "loan_id",
+					"value": "26",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1475263078439,
+			"name": "Rincian Utang",
+			"description": "",
+			"collectionId": "8dc07b14-cc31-7833-cf67-4f15588485c4",
+			"responses": []
+		},
+		{
+			"id": "37b064d4-5caa-a491-4f7a-fedc757d2fad",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://paramakomputer.com:1337/list-all-loan",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "user_id",
+					"value": "10",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1475263093143,
+			"name": "List Rincian Utang",
+			"description": "",
+			"collectionId": "8dc07b14-cc31-7833-cf67-4f15588485c4",
+			"responses": []
+		},
+		{
+			"id": "8799f4c4-43e0-14d4-ca29-67c7485a34a6",
+			"headers": "",
+			"url": "http://paramakomputer.com:1337/User/",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "name",
+					"value": "doni",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "doni.surya@kudo.id",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "132321321fdsfsa",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "mobile_no",
+					"value": "081299063180",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address",
+					"value": "123",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "status",
+					"value": "loan_inactive",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1475263123847,
+			"name": "Create User",
+			"description": "",
+			"collectionId": "8dc07b14-cc31-7833-cf67-4f15588485c4",
+			"responses": []
+		},
+		{
+			"id": "9390e9ec-cb94-8c89-05be-18b21c27ce00",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://paramakomputer.com:1337/creditscore/create",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "user_id",
+					"value": "11",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "score",
+					"value": "5",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1475263348556,
+			"name": "Credit Score",
+			"description": "",
+			"collectionId": "8dc07b14-cc31-7833-cf67-4f15588485c4",
+			"responses": []
+		},
+		{
+			"id": "9aaa16cb-2637-0857-214d-579e2c20120e",
+			"headers": "",
+			"url": "http://paramakomputer.com:1337/User/17",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "name",
+					"value": "doni",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "doni.suray@kudo.id",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "132321321fdsfsa",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "mobile_no",
+					"value": "081299063185",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address",
+					"value": "123",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "status",
+					"value": "loan_inactive",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1475263105184,
+			"name": "Get User",
+			"description": "",
+			"collectionId": "8dc07b14-cc31-7833-cf67-4f15588485c4",
+			"responses": []
+		},
+		{
+			"id": "a242360e-8645-b628-4ea2-0e9e45fed9b8",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://paramakomputer.com:1337/request-loan",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "lender_id",
+					"value": "10",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "lendee_id",
+					"value": "17",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "10000001",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "period_month",
+					"value": "6",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "purpose",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "",
+					"value": "",
+					"type": "text",
+					"enabled": false
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1475263027896,
+			"name": "Create loan request 2",
+			"description": "Case for when lendee doesn't have an active loan",
+			"collectionId": "8dc07b14-cc31-7833-cf67-4f15588485c4",
+			"responses": []
+		},
+		{
+			"id": "ab786485-a3ac-d012-2252-85058e7d3145",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://paramakomputer.com:1337/list-kerabat",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "user_id",
+					"value": "12",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1475262879342,
+			"name": "List kerabat",
+			"description": "",
+			"collectionId": "8dc07b14-cc31-7833-cf67-4f15588485c4",
+			"responses": []
+		},
+		{
+			"id": "ba22d1bc-c077-b9c9-944a-e84e5d8bd84d",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://paramakomputer.com:1337/transaction/create",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "lender_id",
+					"value": "10",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "lendee_id",
+					"value": "14",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "100000000",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "period_month",
+					"value": "2016-09-01",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "purpose",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "interest_rate",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "status",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "due_date",
+					"value": "2016-12-01",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "va_number",
+					"value": "123123123123",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1475263307644,
+			"name": "Transaction",
+			"description": "",
+			"collectionId": "8dc07b14-cc31-7833-cf67-4f15588485c4",
+			"responses": []
+		},
+		{
+			"id": "d61693db-7200-769d-b057-dd278d26f6ac",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://paramakomputer.com:1337/bankaccount/create",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "user_id",
+					"value": "10",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "debit",
+					"value": "100",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "credit",
+					"value": "12323",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "balance",
+					"value": "13213213",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "whitelist",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "description",
+					"value": "http://localhost:1337/connection/create",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1475263345626,
+			"name": "Bank Account",
+			"description": "",
+			"collectionId": "8dc07b14-cc31-7833-cf67-4f15588485c4",
+			"responses": []
+		},
+		{
+			"id": "f88ef26e-4981-ab6f-8851-4755915b53be",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://paramakomputer.com:1337/connection/create",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "user_id_one",
+					"value": "10",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "user_id_two",
+					"value": "11",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1475262863781,
+			"name": "Connection",
+			"description": "",
+			"collectionId": "8dc07b14-cc31-7833-cf67-4f15588485c4",
+			"responses": []
+		},
+		{
+			"id": "fbc66ee4-5775-9f9f-871d-817a8b1f63fb",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://paramakomputer.com:1337/request-loan",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "lender_id",
+					"value": "10",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "lendee_id",
+					"value": "15",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "10000001",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "period_month",
+					"value": "6",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "purpose",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "",
+					"value": "",
+					"type": "text",
+					"enabled": false
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1475263001211,
+			"name": "Create loan request 1",
+			"description": "Case for when lendee has an active loan",
+			"collectionId": "8dc07b14-cc31-7833-cf67-4f15588485c4",
+			"responses": []
+		}
+	]
+}

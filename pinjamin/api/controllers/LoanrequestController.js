@@ -51,14 +51,23 @@ module.exports = {
 
     listLoanRequest: function(req,res) {
         var userId = req.body.user_id;
-        //LoanrequestServices.getAllRequest(user_id, function(allRequest){
-
-        //});
+        LoanrequestServices.getAllRequest(userId, function(allLoan){
+            var totalPiutang = 0;
+            for (i = 0; i < allLoan.length; i++) {
+                if (allLoan[i].loan_status===5) {
+                    totalPiutang = totalPiutang + allLoan[i].amount;
+                    allLoan.total_piutang = totalPiutang;
+                }
+            }
+            res.ok(allLoan);
+        });
     },
 
     getLoanRequest: function(req,res) {
         var loanId = req.body.loan_id;
-        LoanrequestServices.getSingleRequest()
+        LoanrequestServices.getSingleRequest(loanId, function(loan){
+           res.ok(loan); 
+        });
     },
 
     confirmRequest: function(req,res) {

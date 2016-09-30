@@ -14,7 +14,7 @@ module.exports = {
     },
 
     score: {
-      type: 'integer',
+      type: 'string',
       required: true
     }
   }
