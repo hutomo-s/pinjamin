@@ -165,5 +165,5 @@ var Kerabat = React.createClass({
 // Render 
 ReactDOM.render(
   <App />,
-  document.getElementById('app')
+  document.getElementById('app-root')
 );
