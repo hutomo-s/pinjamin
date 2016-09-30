@@ -1,7 +1,7 @@
 /**
- * UserController
+ * BankaccountController
  *
- * @description :: Server-side logic for managing users
+ * @description :: Server-side logic for managing bankaccounts
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 

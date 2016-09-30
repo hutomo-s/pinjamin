@@ -1,7 +1,7 @@
 /**
- * UserController
+ * CreditscoreController
  *
- * @description :: Server-side logic for managing users
+ * @description :: Server-side logic for managing creditscores
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 

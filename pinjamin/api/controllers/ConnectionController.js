@@ -1,7 +1,7 @@
 /**
- * UserController
+ * ConnectionController
  *
- * @description :: Server-side logic for managing users
+ * @description :: Server-side logic for managing connections
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
