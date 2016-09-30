@@ -161,3 +161,9 @@ var Creditors = React.createClass({
 var Kerabat = React.createClass({
   
 })
+
+// Render 
+ReactDOM.render(
+  <App />,
+  document.getElementById('app')
+);
