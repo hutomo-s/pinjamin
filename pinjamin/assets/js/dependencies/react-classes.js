@@ -102,7 +102,7 @@ var Dashboard = React.createClass({
         <div className="row">
           <div className="col-xs-12 col-sm-6 money-panel">
             <div className="panel panel-success">
-              <div className="panel-heading">Piutang</div>
+              <div className="panel-heading credit-display">Piutang</div>
               <div className="panel-body credit-display">
                 <span className="big-money">{this.props.user.credit}</span>
               </div>
@@ -111,7 +111,7 @@ var Dashboard = React.createClass({
           </div>
           <div className="col-xs-12 col-sm-6 money-panel">
             <div className="panel panel-warning">
-              <div className="panel-heading">Hutang</div>
+              <div className="panel-heading debt-display">Hutang</div>
               <div className="panel-body debt-display">
                 <span className="big-money">{this.props.user.debt}</span>
               </div>
