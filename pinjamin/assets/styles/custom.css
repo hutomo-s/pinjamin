@@ -22,3 +22,7 @@
 #sidebar .list-group-item-active {
   background-color: #fff;
 }
+
+.money-panel {
+  margin-top: 15px;
+}
