@@ -28,10 +28,23 @@
   margin-top: 15px;
 }
 
+<<<<<<< HEAD
 .credit-display {
   background-color: #72bb53;
 }
 
 .debt-display {
   background-color: #ff9800;
+=======
+.panel .credit-display {
+  background-color: #72bb53;
+}
+
+.panel .debt-display {
+  background-color: #ff9800;
+}
+
+.media {
+  padding-top: 5px;
+>>>>>>> 7c909103ae204ad522923265e3c71ce39c23a3a0
 }

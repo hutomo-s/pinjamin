@@ -102,7 +102,11 @@ var Dashboard = React.createClass({
         <div className="row">
           <div className="col-xs-12 col-sm-6 money-panel">
             <div className="panel panel-success">
+<<<<<<< HEAD
               <div className="panel-heading">Piutang</div>
+=======
+              <div className="panel-heading credit-display">Piutang</div>
+>>>>>>> 7c909103ae204ad522923265e3c71ce39c23a3a0
               <div className="panel-body credit-display">
                 <span className="big-money">{this.props.user.credit}</span>
               </div>
@@ -111,7 +115,11 @@ var Dashboard = React.createClass({
           </div>
           <div className="col-xs-12 col-sm-6 money-panel">
             <div className="panel panel-warning">
+<<<<<<< HEAD
               <div className="panel-heading">Hutang</div>
+=======
+              <div className="panel-heading debt-display">Hutang</div>
+>>>>>>> 7c909103ae204ad522923265e3c71ce39c23a3a0
               <div className="panel-body debt-display">
                 <span className="big-money">{this.props.user.debt}</span>
               </div>
@@ -134,10 +142,17 @@ var Debtors = React.createClass({
             <div className="media">
               <div className="media-left">
                 <img className="media-object" src={debtor.picture} />
+<<<<<<< HEAD
                 <div className="media-body">
                   <h4 className="media-heading">{debtor.name}</h4>
                   {debtor.debt}
                 </div>
+=======
+              </div>
+              <div className="media-body">
+                <h4 className="media-heading">{debtor.name}</h4>
+                {debtor.debt}
+>>>>>>> 7c909103ae204ad522923265e3c71ce39c23a3a0
               </div>
             </div>
           </div>
@@ -162,10 +177,17 @@ var Creditors = React.createClass({
             <div className="media">
               <div className="media-left">
                 <img className="media-object" src={creditor.picture} />
+<<<<<<< HEAD
                 <div className="media-body">
                   <h4 className="media-heading">{creditor.name}</h4>
                   {creditor.credit}
                 </div>
+=======
+              </div>
+              <div className="media-body">
+                <h4 className="media-heading">{creditor.name}</h4>
+                {creditor.credit}
+>>>>>>> 7c909103ae204ad522923265e3c71ce39c23a3a0
               </div>
             </div>
           </div>
@@ -182,6 +204,7 @@ var Creditors = React.createClass({
 
 // Kerabat
 var Kerabat = React.createClass({
+<<<<<<< HEAD
   getInitialState: function() {
     return(this.props.user.kerabat);
   },
@@ -195,6 +218,151 @@ var Kerabat = React.createClass({
 
   }  
 })
+=======
+  componentWillMount: function() {
+    $.ajax({
+      url: 'list-kerabat',
+      data:{
+        user_id: this.props.user.user_id,
+      }, 
+      cache: false,
+      type: 'POST',
+      success: function(event){
+        appState.user.kerabat = jQuery.parseJSON(event);
+        this.props.update(); 
+      }
+    });
+  },
+  handleClick: function() {
+    //TODO send ajax
+  },
+  render: function() {
+    var kerabats = this.props.user.kerabat.map(function(kerabat){
+      var details = '';
+      if (kerabat.opened === true){
+        // print details
+      }
+      return(
+        <div className="col-xs-12">
+          <div className="row kerabat">
+            <div className="media">
+              <div className="media-left">
+                <img className="media-object" src={kerabat.picture} />
+              </div>
+              <div className="media-body">
+                <h4 className="media-header">{kerabat.name}</h4>
+                {kerabat.email}
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    });
+
+    return(
+      {kerabats}
+    );
+  }  
+});
+
+// FormPinjam
+var FormPinjam = React.createClass({
+  handleSubmit: function(event){
+    // TODO
+  },
+  componentWillMount: function(){
+    $.ajax({
+      url: 'list-kerabat',
+      data:{
+        user_id: this.props.user.user_id,
+      }, 
+      cache: false,
+      type: 'POST',
+      success: function(event){
+        appState.user.kerabat = jQuery.parseJSON(event);
+        this.props.update(); 
+      }
+    });
+  },
+  render: function(){
+    var kerabats = this.props.user.kerabat.map(function(kerabat){
+      return(
+        <option value={kerabat.user_id}>{kerabat.name}</option>
+      );
+    });
+    return(
+      <div className="col-xs-12">
+        <div className="row form-container">
+          <form>
+            <label for="jumlah-saldo">Jumlah Saldo</label>
+            <div className="input-group">
+              <input type="text" className="form-control" id="jumlah-saldo" placeholder="Jumlah Saldo" />
+            </div>
+            <label for="tenor">Tenor</label>
+            <div className="input-group">
+              <input type="number" className="form-control" id="tenor" />
+              <span class="input-group-addon">bulan</span>
+            </div>
+            <label for="kerabat">Kerabat</label>
+            <div className="input-group">
+              <select className="form-control" id="kerabat">
+                {kerabats}
+              </select>
+            </div>
+            <label for="alasan">Alasan Meminjam</label>
+            <div className="input-group">
+              <textarea className="form-control" id="alasan" />
+            </div>
+            <button type="button" class="btn btn-default" id="cancel">Batal</button>
+            <button type="submit" class="btn btn-default" id="submit">Pinjam</button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+});
+
+// Requests
+var RequestList = React.createClass({
+  componentWillMount: function(){
+    $.ajax({
+      url: 'list-all-loan',
+      data:{
+        user_id: this.props.user.user_id,
+      }, 
+      cache: false,
+      type: 'POST',
+      success: function(event){
+        appState.user.requests = jQuery.parseJSON(event);
+        this.props.update(); 
+      }
+    });
+  },
+  render: function(){
+    var requests = this.props.user.requests.map(function(request){
+      return(
+        <div className="row requester">
+          <div className="media">
+            <div className="media-left">
+              <img class="media-object" src={request.user.picture} />
+            </div>
+            <div class="media-body">
+              <h4 classname="media-heading">{request.user.name}</h4>
+              {request.date}
+            </div>
+          </div>
+        </div>
+      )
+    });
+
+    return(
+      <div className="col-xs-12">
+        {requests}
+      </div>
+    )
+  }
+});
+>>>>>>> 7c909103ae204ad522923265e3c71ce39c23a3a0
 
 // Render 
 ReactDOM.render(
