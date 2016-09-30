@@ -6,10 +6,7 @@ var appState = {
 // App
 var App = React.createClass({
   getInitialState: function(){
-    this.setState({
-      activeWindow: appState.activeWindow,
-      user: appState.user
-    });
+    return(appState);
   },
   updateState: function(){
     this.setState(appState);
@@ -43,7 +40,7 @@ var App = React.createClass({
 // Sidebar
 var Sidebar = React.createClass({
   getInitialState: function(){
-    this.setState({active: appState.activeWindow});
+    return({active: appState.activeWindow});
   },
   handleChange: function(event){
     this.setState({active: event});
