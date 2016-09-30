@@ -1,5 +1,6 @@
 $(document).ready(function () {
-  $('[data-toggle="offcanvas"]').click(function () {
-    $('.row-offcanvas').toggleClass('active')
+  $('.nav-toggle-button').on('click touchstart', function () {
+    $('.row-offcanvas').toggleClass('active');
+    console.log('nav toggle?????');
   });
 });
