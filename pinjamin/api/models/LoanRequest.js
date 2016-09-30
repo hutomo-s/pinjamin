@@ -24,7 +24,7 @@ module.exports = {
     },
 
     period_month: {
-      type: 'date',
+      type: 'integer',
       required: true
     },
 
