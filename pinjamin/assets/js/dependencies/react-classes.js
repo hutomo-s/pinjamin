@@ -52,7 +52,7 @@ var Sidebar = React.createClass({
     }
     this.props.update();
     return(
-      <div id="sidebar" class="col-xs-12 col-sm-3 sidebar">
+      <div id="sidebar" className="col-xs-12 col-sm-3 sidebar">
         <div className="list-group row" onClick={() => this.handleChange(0)}>
           <a className={classes[0]} href="#">Dashboard</a>
         </div>

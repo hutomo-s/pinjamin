@@ -107,7 +107,7 @@
 	    this.props.update();
 	    return React.createElement(
 	      'div',
-	      { id: 'sidebar', 'class': 'col-xs-12 col-sm-3 sidebar' },
+	      { id: 'sidebar', className: 'col-xs-12 col-sm-3 sidebar' },
 	      React.createElement(
 	        'div',
 	        { className: 'list-group row', onClick: function onClick() {
