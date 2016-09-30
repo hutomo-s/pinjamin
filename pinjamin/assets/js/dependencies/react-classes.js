@@ -182,9 +182,6 @@ var Creditors = React.createClass({
 
 // Kerabat
 var Kerabat = React.createClass({
-  getInitialState: function() {
-    return(this.props.user.kerabat);
-  },
   componentWillMount: function() {
     $.ajax({
       url: 'list-kerabat',
@@ -289,7 +286,7 @@ var FormPinjam = React.createClass({
 });
 
 // Requests
-var Requests = React.createClass({
+var RequestList = React.createClass({
   componentWillMount: function(){
     $.ajax({
       url: 'list-all-loan',
