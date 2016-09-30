@@ -272,7 +272,7 @@ def insert_update_score(user_id,credit_score):
                "WHERE lendee_id = %s")
     data_score_insert = (datetime.now(), datetime.now(), user_id,credit_score)
     data_score_update = (credit_score,datetime.now(),user_id)
-    if float(credit_score) >= 0.8:
+    if float(credit_score) >= 0.5:
         data_loan_status = (3,datetime.now(),user_id)
     else:
         data_loan_status = (4,datetime.now(),user_id)
