@@ -16,6 +16,7 @@
 #sidebar .list-group-item {
   background-color: #2196f3;
   border: 0;
+  height: 72px;
 }
 
 #sidebar .list-group-item-active {
