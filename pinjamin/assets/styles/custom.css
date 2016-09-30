@@ -6,6 +6,10 @@
   background: #2196f3;
 }
 
+#sidebar .list-group {
+  margin: 0;
+}
+
 #sidebar .list-group-item {
   background-color: #2196f3;
   border: 0;
