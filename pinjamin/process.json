@@ -4,7 +4,7 @@
       "script"     : "./app.js",
       "args" : ["lift"],
       "watch" : true,
-      "ignoreWatch" : [".tmp/*", "node_modules", ".git/*", "test/*", "package.json", "Gruntfile.js"],
+      "ignoreWatch" : [".tmp/*", "node_modules", ".git/*", "test/*", "package.json", "Gruntfile.js", "views/*"],
       "env": {
           "NODE_ENV": "development"
       }
