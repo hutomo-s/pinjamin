@@ -29,7 +29,7 @@ module.exports = {
     },
 
     credit_score: {
-      type: 'integer'
+      type: 'string'
     },
 
     purpose: {
@@ -38,7 +38,7 @@ module.exports = {
     },
 
     loan_status: {
-      type: 'string',
+      type: 'integer',
       required: true
     }
   }
