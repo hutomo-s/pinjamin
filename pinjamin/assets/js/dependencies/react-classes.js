@@ -189,7 +189,7 @@ var Kerabat = React.createClass({
         user_id: this.props.user.user_id,
       }, 
       cache: false,
-      type: POST,
+      type: 'POST',
       success: function(event){
         appState.user.kerabat = jQuery.parseJSON(event);
         this.props.update(); 
@@ -240,7 +240,7 @@ var FormPinjam = React.createClass({
         user_id: this.props.user.user_id,
       }, 
       cache: false,
-      type: POST,
+      type: 'POST',
       success: function(event){
         appState.user.kerabat = jQuery.parseJSON(event);
         this.props.update(); 
@@ -294,7 +294,7 @@ var RequestList = React.createClass({
         user_id: this.props.user.user_id,
       }, 
       cache: false,
-      type: POST,
+      type: 'POST',
       success: function(event){
         appState.user.requests = jQuery.parseJSON(event);
         this.props.update(); 

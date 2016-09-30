@@ -332,7 +332,7 @@
 	        user_id: this.props.user.user_id
 	      },
 	      cache: false,
-	      type: POST,
+	      type: 'POST',
 	      success: function success(event) {
 	        appState.user.kerabat = jQuery.parseJSON(event);
 	        this.props.update();
@@ -395,7 +395,7 @@
 	        user_id: this.props.user.user_id
 	      },
 	      cache: false,
-	      type: POST,
+	      type: 'POST',
 	      success: function success(event) {
 	        appState.user.kerabat = jQuery.parseJSON(event);
 	        this.props.update();
@@ -495,7 +495,7 @@
 	        user_id: this.props.user.user_id
 	      },
 	      cache: false,
-	      type: POST,
+	      type: 'POST',
 	      success: function success(event) {
 	        appState.user.requests = jQuery.parseJSON(event);
 	        this.props.update();
