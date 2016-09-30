@@ -104,7 +104,6 @@
 	        classes[i] = classes[i] + 'list-group-item-active';
 	      }
 	    }
-	    this.props.update();
 	    return React.createElement(
 	      'div',
 	      { id: 'sidebar', className: 'col-xs-12 col-sm-3 sidebar' },

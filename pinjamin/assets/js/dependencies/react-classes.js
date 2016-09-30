@@ -50,7 +50,6 @@ var Sidebar = React.createClass({
         classes[i] = classes[i] + 'list-group-item-active';
       }
     }
-    this.props.update();
     return(
       <div id="sidebar" className="col-xs-12 col-sm-3 sidebar">
         <div className="list-group row" onClick={() => this.handleChange(0)}>
