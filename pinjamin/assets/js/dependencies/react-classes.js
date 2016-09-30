@@ -180,10 +180,21 @@ var Creditors = React.createClass({
   } 
 });
 
-// // Kerabat
-// var Kerabat = React.createClass({
-  
-// })
+// Kerabat
+var Kerabat = React.createClass({
+  getInitialState: function() {
+    return(this.props.user.kerabat);
+  },
+  componentWillMount: function() {
+    $.ajax()
+  },
+  handleClick: function() {
+    // send ajax
+  },
+  render: function() {
+
+  }  
+})
 
 // Render 
 ReactDOM.render(
