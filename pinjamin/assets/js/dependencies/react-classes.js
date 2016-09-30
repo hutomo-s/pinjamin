@@ -11,9 +11,6 @@ var App = React.createClass({
   updateState: function(){
     this.setState(appState);
   },
-  componentDidMount: function(){
-    this.getInitialState();
-  },
   render: function(){
     var activeContent;
     if (this.state.activeWindow === 0) {
@@ -45,6 +42,7 @@ var Sidebar = React.createClass({
   handleChange: function(event){
     this.setState({active: event});
     appState.activeWindow = event;
+    this.props.update();
   },
   render: function(){
     var classes = [];
