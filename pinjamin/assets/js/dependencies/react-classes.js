@@ -14,13 +14,13 @@ var App = React.createClass({
   render: function(){
     var activeContent = '';
     if (this.state.activeWindow === 0) {
-      activeContent = <Dashboard user={this.state.user} update={this.updateState}/>
+      activeContent = <Dashboard user={this.state.user} update={this.updateState}/>;
     } else if (this.state.activeWindow === 1) {
-      activeContent = <Kerabat user={this.state.user} update={this.updateState}/>
+      activeContent = <Kerabat user={this.state.user} update={this.updateState}/>;
     } else if (this.state.activeWindow === 2) {
-      activeContent = <FormPinjam user={this.state.user} update={this.updateState}/>
+      activeContent = <FormPinjam user={this.state.user} update={this.updateState}/>;
     } else if (this.state.activeWindow === 3) {
-      activeContent = <RequestList user={this.state.user} update={this.updateState}/>
+      activeContent = <RequestList user={this.state.user} update={this.updateState}/>;
     }
 
     return(
