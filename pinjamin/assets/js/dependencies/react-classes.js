@@ -1,6 +1,28 @@
 var appState = {
   activeWindow: 0,
-  user: {}
+  user: {
+    credit: '10000',
+    debt: '100',
+    debtors: [
+      {
+        picture: '/assets/img/a.jpg',
+        name: 'a',
+        debt: '5000'
+      },
+      {
+        picture: '/assets/img/b.jpg',
+        name: 'b',
+        debt: '5000'
+      }
+    ],
+    creditors: [
+      {
+        picture: '/assets/img/c.jpg',
+        name: 'c',
+        credit: '500'
+      }
+    ]
+  }
 }
 
 // App
@@ -50,7 +72,6 @@ var Sidebar = React.createClass({
         classes[i] = classes[i] + 'list-group-item-active';
       }
     }
-    this.props.update();
     return(
       <div id="sidebar" className="col-xs-12 col-sm-3 sidebar">
         <div className="list-group row" onClick={() => this.handleChange(0)}>
