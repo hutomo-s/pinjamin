@@ -5,6 +5,7 @@
 #sidebar {
   background: #2196f3;
   padding: 0;
+  height: 100vh;
 }
 
 #sidebar .list-group {
