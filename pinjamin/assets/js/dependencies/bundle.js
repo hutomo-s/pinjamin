@@ -42,13 +42,41 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(1);
+	(function webpackMissingModule() { throw new Error("Cannot find module \"stop\""); }());
+
+
+/***/ },
+/* 1 */
 /***/ function(module, exports) {
 
 	'use strict';
 
 	var appState = {
 	  activeWindow: 0,
-	  user: {}
+	  user: {
+	    credit: '10000',
+	    debt: '100',
+	    debtors: [{
+	      key: 1,
+	      picture: '/assets/img/a.jpg',
+	      name: 'a',
+	      debt: '5000'
+	    }, {
+	      key: 2,
+	      picture: '/assets/img/b.jpg',
+	      name: 'b',
+	      debt: '5000'
+	    }],
+	    creditors: [{
+	      key: 1,
+	      picture: '/assets/img/c.jpg',
+	      name: 'c',
+	      credit: '500'
+	    }]
+	  }
 	};
 
 	// App
@@ -225,7 +253,7 @@
 	    var debtors = this.props.list.map(function (debtor) {
 	      return React.createElement(
 	        'div',
-	        { className: 'col-xs-12' },
+	        { className: 'col-xs-12', key: debtor.key },
 	        React.createElement(
 	          'div',
 	          { className: 'row' },
@@ -267,7 +295,7 @@
 	    var creditors = this.props.list.map(function (creditor) {
 	      return React.createElement(
 	        'div',
-	        { className: 'col-xs-12' },
+	        { className: 'col-xs-12', key: creditor.key },
 	        React.createElement(
 	          'div',
 	          { className: 'row' },

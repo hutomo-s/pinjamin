@@ -5,11 +5,13 @@ var appState = {
     debt: '100',
     debtors: [
       {
+        key: 1,
         picture: '/assets/img/a.jpg',
         name: 'a',
         debt: '5000'
       },
       {
+        key: 2,
         picture: '/assets/img/b.jpg',
         name: 'b',
         debt: '5000'
@@ -17,6 +19,7 @@ var appState = {
     ],
     creditors: [
       {
+        key: 1,
         picture: '/assets/img/c.jpg',
         name: 'c',
         credit: '500'
@@ -126,7 +129,7 @@ var Debtors = React.createClass({
   render: function() {
     var debtors = this.props.list.map(function(debtor) {
       return(
-        <div className="col-xs-12">
+        <div className="col-xs-12" key={debtor.key}>
           <div className="row">
             <div className="media">
               <div className="media-left">
@@ -154,7 +157,7 @@ var Creditors = React.createClass({
   render: function() {
     var creditors = this.props.list.map(function(creditor) {
       return(
-        <div className="col-xs-12">
+        <div className="col-xs-12" key={creditor.key}>
           <div className="row">
             <div className="media">
               <div className="media-left">
