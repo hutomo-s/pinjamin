@@ -35,6 +35,12 @@ module.exports.routes = {
   '/': {
     view: 'homepage',
   },
+
+  '/landing': {
+    view: 'homepage-backup',
+    title: 'pinjamin'
+  },
+  
   'post /signup': 'UserController.createUser'
   
   /***************************************************************************
