@@ -157,10 +157,10 @@ var Creditors = React.createClass({
   } 
 });
 
-// Kerabat
-var Kerabat = React.createClass({
+// // Kerabat
+// var Kerabat = React.createClass({
   
-})
+// })
 
 // Render 
 ReactDOM.render(
