@@ -167,11 +167,11 @@ def credit_mix(pinjaman):
 
 #total untuk penggabungan trust score
 def trust_score():
-    payment_hist = pd.read_csv('/Users/donisurya/odrive/Google Drive (2)/Project/BRI Challenge/data_dummy_payment_history.csv') 
-    data_new_credit = pd.read_csv('/Users/donisurya/odrive/Google Drive (2)/Project/BRI Challenge/data_dummy_new_credit.csv')
-    data_outstanding_debt = pd.read_csv('/Users/donisurya/odrive/Google Drive (2)/Project/BRI Challenge/data_dummy_outstanding_debt.csv')
-    data_saldo = pd.read_csv('/Users/donisurya/odrive/Google Drive (2)/Project/BRI Challenge/data_dummy_saldo.csv')
-    data_credit_mix = pd.read_csv('/Users/donisurya/odrive/Google Drive (2)/Project/BRI Challenge/data_dummy_pinjaman.csv')
+    payment_hist = pd.read_csv('csv/data_dummy_payment_history.csv') 
+    data_new_credit = pd.read_csv('csv/data_dummy_new_credit.csv')
+    data_outstanding_debt = pd.read_csv('csv/data_dummy_outstanding_debt.csv')
+    data_saldo = pd.read_csv('csv/data_dummy_saldo.csv')
+    data_credit_mix = pd.read_csv('csv/data_dummy_pinjaman.csv')
 
     score_payment_history = payment_history(cashier_id=list(payment_hist['cashier_id'].astype(int)),whitelist=list(payment_hist['whitelist'].astype(str)),created_at=list(pd.to_datetime(payment_hist['created_at'])))
     score_new_credit = new_credit(ids=list(data_new_credit['id'].astype(int)),cashier_id=list(data_new_credit['cashier_id'].astype(int)),new_credit=list(data_new_credit['new_credit'].astype(int)))

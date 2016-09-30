@@ -1,27 +1,22 @@
-var Waterline = require('waterline');
+/**
+ * Creditscore.js
+ *
+ * @description :: TODO: You might write a short summary of how this model works and what it represents here.
+ * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
+ */
 
-var User = Waterline.Collection.extend({
+module.exports = {
 
   attributes: {
-
-    connection:'mysql',
-    tableName:'creditscore',
-
-    id: {
-      type: 'int',
-      required: true,
-      primaryKey: true,
-      unique: true
-    },
-
     user_id: {
-      type: 'int',
+      type: 'integer',
       required: true
     },
 
     score: {
-      type: 'int',
+      type: 'integer',
       required: true
     }
   }
-});
+};
+
