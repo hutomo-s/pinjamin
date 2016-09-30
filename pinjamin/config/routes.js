@@ -35,7 +35,7 @@ module.exports.routes = {
   '/': {
     view: 'homepage',
   },
-
+  
   'post /signup': 'UserController.createUser',
   'post /request-loan': 'LoanrequestController.createRequest'
   
