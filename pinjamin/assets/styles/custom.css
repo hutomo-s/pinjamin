@@ -1,10 +1,11 @@
 .navbar.navbar-inverse {
   margin-bottom: 0;
+  background-color: #1976d2;
   height: 120px;
 }
 
 #sidebar {
-  background: #2196f3;
+  background: #1e88e5;
   padding: 0;
   height: 100vh;
 }
@@ -14,7 +15,7 @@
 }
 
 #sidebar .list-group-item {
-  background-color: #2196f3;
+  background-color: #1e88e5;
   border: 0;
   height: 64px;
 }
@@ -28,7 +29,7 @@
 }
 
 .credit-display {
-  background-color: #4caf50;
+  background-color: #72bb53;
 }
 
 .debt-display {

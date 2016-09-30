@@ -35,19 +35,7 @@ module.exports.routes = {
   '/': {
     view: 'homepage',
   },
-
-  '/kerabat': {
-    view: 'kerabat',
-  },
-
-  '/pinjam': {
-    view: 'pinjam',
-  },
-
-  '/requests': {
-    view: 'requests',
-  },
-
+  
   'post /signup': 'UserController.createUser',
   'post /request-loan': 'LoanrequestController.createRequest'
   
