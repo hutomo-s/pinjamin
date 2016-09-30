@@ -98,7 +98,7 @@
 	    var _this = this;
 
 	    var classes = [];
-	    for (i = 0; i < 4; i++) {
+	    for (var i = 0; i < 4; i++) {
 	      classes[i] = 'list-group-item';
 	      if (this.state.active === i) {
 	        classes[i] = classes[i] + 'list-group-item-active';
