@@ -42,17 +42,6 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-<<<<<<< HEAD
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(1);
-	(function webpackMissingModule() { throw new Error("Cannot find module \"stop\""); }());
-
-
-/***/ },
-/* 1 */
-=======
->>>>>>> 7c909103ae204ad522923265e3c71ce39c23a3a0
 /***/ function(module, exports) {
 
 	'use strict';
@@ -60,24 +49,53 @@
 	var appState = {
 	  activeWindow: 0,
 	  user: {
+	    name: 'Gunawan',
+	    user_id: 10,
 	    credit: '10000',
-	    debt: '100',
+	    debt: '500',
 	    debtors: [{
 	      key: 1,
-	      picture: '/assets/img/a.jpg',
-	      name: 'a',
+	      picture: '/img/a.jpg',
+	      name: 'Albert',
 	      debt: '5000'
 	    }, {
 	      key: 2,
-	      picture: '/assets/img/b.jpg',
-	      name: 'b',
+	      picture: '/img/2.jpg',
+	      name: 'Budiman',
 	      debt: '5000'
 	    }],
 	    creditors: [{
 	      key: 1,
-	      picture: '/assets/img/c.jpg',
-	      name: 'c',
+	      picture: '/img/c.jpg',
+	      name: 'Cynthia',
 	      credit: '500'
+	    }],
+	    kerabat: [{
+	      key: 0,
+	      picture: '/img/a.jpg',
+	      name: 'Agung',
+	      email: 'a@aaa.com'
+	    }, {
+	      key: 1,
+	      picture: '/img/2.jpg',
+	      name: 'Bella',
+	      email: 'b@bbb.net'
+	    }, {
+	      key: 2,
+	      picture: '/img/c.jpg',
+	      name: 'Catherine',
+	      email: 'c@ccc.org'
+	    }],
+	    requests: [{
+	      key: 0,
+	      picture: '/img/d.jpg',
+	      name: 'Doni',
+	      date: '1 Februari 2016'
+	    }, {
+	      key: 1,
+	      picture: '/img/e.jpg',
+	      name: 'Erma',
+	      date: '7 Juli 2016'
 	    }]
 	  }
 	};
@@ -90,25 +108,51 @@
 	    return appState;
 	  },
 	  updateState: function updateState() {
+	    console.log(this.state);
 	    this.setState(appState);
+	    this.forceUpdate();
 	  },
 	  render: function render() {
-	    var activeContent = '';
+	    var _this = this;
+
 	    if (this.state.activeWindow === 0) {
-	      activeContent = React.createElement(Dashboard, { user: this.state.user, update: this.updateState });
+	      $('.dashboard').show();
+	      $('.kerabat').hide();
+	      $('.form-pinjam').hide();
+	      $('.requests').hide();
 	    } else if (this.state.activeWindow === 1) {
-	      activeContent = React.createElement(Kerabat, { user: this.state.user, update: this.updateState });
+	      $('.kerabat').show();
+	      $('.dashboard').hide();
+	      $('.form-pinjam').hide();
+	      $('.requests').hide();
 	    } else if (this.state.activeWindow === 2) {
-	      activeContent = React.createElement(FormPinjam, { user: this.state.user, update: this.updateState });
+	      $('.form-pinjam').show();
+	      $('.dashboard').hide();
+	      $('.kerabat').hide();
+	      $('.requests').hide();
 	    } else if (this.state.activeWindow === 3) {
-	      activeContent = React.createElement(RequestList, { user: this.state.user, update: this.updateState });
+	      $('.form-pinjam').hide();
+	      $('.dashboard').hide();
+	      $('.kerabat').hide();
+	      $('.requests').show();
 	    }
 
 	    return React.createElement(
 	      'div',
 	      null,
 	      React.createElement(Sidebar, { update: this.updateState }),
-	      activeContent
+	      React.createElement(Dashboard, { user: this.state.user, update: function update() {
+	          return _this.updateState;
+	        } }),
+	      React.createElement(Kerabat, { user: this.state.user, update: function update() {
+	          return _this.updateState;
+	        } }),
+	      React.createElement(FormPinjam, { user: this.state.user, update: function update() {
+	          return _this.updateState;
+	        } }),
+	      React.createElement(RequestList, { user: this.state.user, update: function update() {
+	          return _this.updateState;
+	        } })
 	    );
 	  }
 	});
@@ -126,13 +170,13 @@
 	    this.props.update();
 	  },
 	  render: function render() {
-	    var _this = this;
+	    var _this2 = this;
 
 	    var classes = [];
 	    for (var i = 0; i < 4; i++) {
 	      classes[i] = 'list-group-item';
 	      if (this.state.active === i) {
-	        classes[i] = classes[i] + 'list-group-item-active';
+	        classes[i] = classes[i] + ' list-group-item-active';
 	      }
 	    }
 	    return React.createElement(
@@ -141,7 +185,7 @@
 	      React.createElement(
 	        'div',
 	        { className: 'list-group row', onClick: function onClick() {
-	            return _this.handleChange(0);
+	            return _this2.handleChange(0);
 	          } },
 	        React.createElement(
 	          'a',
@@ -152,7 +196,7 @@
 	      React.createElement(
 	        'div',
 	        { className: 'list-group row', onClick: function onClick() {
-	            return _this.handleChange(1);
+	            return _this2.handleChange(1);
 	          } },
 	        React.createElement(
 	          'a',
@@ -163,7 +207,7 @@
 	      React.createElement(
 	        'div',
 	        { className: 'list-group row', onClick: function onClick() {
-	            return _this.handleChange(2);
+	            return _this2.handleChange(2);
 	          } },
 	        React.createElement(
 	          'a',
@@ -174,7 +218,7 @@
 	      React.createElement(
 	        'div',
 	        { className: 'list-group row', onClick: function onClick() {
-	            return _this.handleChange(3);
+	            return _this2.handleChange(3);
 	          } },
 	        React.createElement(
 	          'a',
@@ -193,7 +237,7 @@
 	  render: function render() {
 	    return React.createElement(
 	      'div',
-	      { className: 'col-xs-12 col-sm-9' },
+	      { className: 'col-xs-12 col-sm-9 dashboard' },
 	      React.createElement(
 	        'div',
 	        { className: 'row' },
@@ -205,11 +249,7 @@
 	            { className: 'panel panel-success' },
 	            React.createElement(
 	              'div',
-<<<<<<< HEAD
-	              { className: 'panel-heading' },
-=======
 	              { className: 'panel-heading credit-display' },
->>>>>>> 7c909103ae204ad522923265e3c71ce39c23a3a0
 	              'Piutang'
 	            ),
 	            React.createElement(
@@ -232,11 +272,7 @@
 	            { className: 'panel panel-warning' },
 	            React.createElement(
 	              'div',
-<<<<<<< HEAD
-	              { className: 'panel-heading' },
-=======
 	              { className: 'panel-heading debt-display' },
->>>>>>> 7c909103ae204ad522923265e3c71ce39c23a3a0
 	              'Hutang'
 	            ),
 	            React.createElement(
@@ -274,19 +310,6 @@
 	            React.createElement(
 	              'div',
 	              { className: 'media-left' },
-<<<<<<< HEAD
-	              React.createElement('img', { className: 'media-object', src: debtor.picture }),
-	              React.createElement(
-	                'div',
-	                { className: 'media-body' },
-	                React.createElement(
-	                  'h4',
-	                  { className: 'media-heading' },
-	                  debtor.name
-	                ),
-	                debtor.debt
-	              )
-=======
 	              React.createElement('img', { className: 'media-object', src: debtor.picture })
 	            ),
 	            React.createElement(
@@ -298,7 +321,6 @@
 	                debtor.name
 	              ),
 	              debtor.debt
->>>>>>> 7c909103ae204ad522923265e3c71ce39c23a3a0
 	            )
 	          )
 	        )
@@ -330,19 +352,6 @@
 	            React.createElement(
 	              'div',
 	              { className: 'media-left' },
-<<<<<<< HEAD
-	              React.createElement('img', { className: 'media-object', src: creditor.picture }),
-	              React.createElement(
-	                'div',
-	                { className: 'media-body' },
-	                React.createElement(
-	                  'h4',
-	                  { className: 'media-heading' },
-	                  creditor.name
-	                ),
-	                creditor.credit
-	              )
-=======
 	              React.createElement('img', { className: 'media-object', src: creditor.picture })
 	            ),
 	            React.createElement(
@@ -354,7 +363,6 @@
 	                creditor.name
 	              ),
 	              creditor.credit
->>>>>>> 7c909103ae204ad522923265e3c71ce39c23a3a0
 	            )
 	          )
 	        )
@@ -368,69 +376,68 @@
 	  }
 	});
 
-<<<<<<< HEAD
-	// // Kerabat
-	// var Kerabat = React.createClass({
-
-	// })
-=======
 	// Kerabat
 	var Kerabat = React.createClass({
 	  displayName: 'Kerabat',
 
-	  componentWillMount: function componentWillMount() {
-	    $.ajax({
-	      url: 'list-kerabat',
-	      data: {
-	        user_id: this.props.user.user_id
-	      },
-	      cache: false,
-	      type: 'POST',
-	      success: function success(event) {
-	        appState.user.kerabat = jQuery.parseJSON(event);
-	        this.props.update();
-	      }
-	    });
-	  },
-	  handleClick: function handleClick() {
-	    //TODO send ajax
-	  },
+	  // componentWillMount: function() {
+	  //   var updateKerabat = function(event){
+	  //     appState.user.kerabat = event[0];
+	  //     for (var i = 0; i < appState.user.kerabat.length; i ++) {
+	  //       appState.user.kerabat.key = i;
+	  //     }
+	  //     this.props.update(); 
+	  //   }
+	  //   $.ajax({
+	  //     url: 'list-kerabat',
+	  //     data:{
+	  //       user_id: this.props.user.user_id,
+	  //     }, 
+	  //     cache: false,
+	  //     type: 'POST',
+	  //     success: updateKerabat.bind(this),
+	  //   });
+	  // },
+	  // handleClick: function() {
+	  //   //TODO send ajax
+	  // },
 	  render: function render() {
+	    console.log(this.props.user.kerabat);
 	    var kerabats = this.props.user.kerabat.map(function (kerabat) {
 	      var details = '';
 	      if (kerabat.opened === true) {
 	        // print details
 	      }
+	      console.log('hi');
 	      return React.createElement(
 	        'div',
-	        { className: 'col-xs-12' },
+	        { className: 'row kerabat', key: kerabat.key },
 	        React.createElement(
 	          'div',
-	          { className: 'row kerabat' },
+	          { className: 'media' },
 	          React.createElement(
 	            'div',
-	            { className: 'media' },
+	            { className: 'media-left' },
+	            React.createElement('img', { className: 'media-object', src: kerabat.picture })
+	          ),
+	          React.createElement(
+	            'div',
+	            { className: 'media-body' },
 	            React.createElement(
-	              'div',
-	              { className: 'media-left' },
-	              React.createElement('img', { className: 'media-object', src: kerabat.picture })
+	              'h4',
+	              { className: 'media-header' },
+	              kerabat.name
 	            ),
-	            React.createElement(
-	              'div',
-	              { className: 'media-body' },
-	              React.createElement(
-	                'h4',
-	                { className: 'media-header' },
-	                kerabat.name
-	              ),
-	              kerabat.email
-	            )
+	            kerabat.email
 	          )
 	        )
 	      );
 	    });
-
-	    return { kerabats: kerabats };
+	    return React.createElement(
+	      'div',
+	      { className: 'col-xs-12 col-sm-9' },
+	      kerabats
+	    );
 	  }
 	});
 
@@ -438,34 +445,35 @@
 	var FormPinjam = React.createClass({
 	  displayName: 'FormPinjam',
 
-	  handleSubmit: function handleSubmit(event) {
-	    // TODO
-	  },
-	  componentWillMount: function componentWillMount() {
-	    $.ajax({
-	      url: 'list-kerabat',
-	      data: {
-	        user_id: this.props.user.user_id
-	      },
-	      cache: false,
-	      type: 'POST',
-	      success: function success(event) {
-	        appState.user.kerabat = jQuery.parseJSON(event);
-	        this.props.update();
-	      }
-	    });
-	  },
+	  // handleSubmit: function(event){
+	  //   // TODO
+	  // },
+	  // componentWillMount: function(){
+	  //   var updateKerabat = function(event){
+	  //     appState.user.kerabat = event[0];
+	  //     this.props.update(); 
+	  //   }
+	  //   $.ajax({
+	  //     url: 'list-kerabat',
+	  //     data:{
+	  //       user_id: this.props.user.user_id,
+	  //     }, 
+	  //     cache: false,
+	  //     type: 'POST',
+	  //     success: updateKerabat,
+	  //   });
+	  // },
 	  render: function render() {
 	    var kerabats = this.props.user.kerabat.map(function (kerabat) {
 	      return React.createElement(
 	        'option',
-	        { value: kerabat.user_id },
+	        { value: kerabat.user_id, key: kerabat.key },
 	        kerabat.name
 	      );
 	    });
 	    return React.createElement(
 	      'div',
-	      { className: 'col-xs-12' },
+	      { className: 'col-xs-12 col-sm-9 form-pinjam' },
 	      React.createElement(
 	        'div',
 	        { className: 'row form-container' },
@@ -474,37 +482,37 @@
 	          null,
 	          React.createElement(
 	            'label',
-	            { 'for': 'jumlah-saldo' },
+	            { htmlFor: 'jumlah-saldo' },
 	            'Jumlah Saldo'
 	          ),
 	          React.createElement(
 	            'div',
-	            { className: 'input-group' },
+	            { className: 'input-group col-xs-12' },
 	            React.createElement('input', { type: 'text', className: 'form-control', id: 'jumlah-saldo', placeholder: 'Jumlah Saldo' })
 	          ),
 	          React.createElement(
 	            'label',
-	            { 'for': 'tenor' },
+	            { htmlFor: 'tenor' },
 	            'Tenor'
 	          ),
 	          React.createElement(
 	            'div',
-	            { className: 'input-group' },
+	            { className: 'input-group col-xs-12' },
 	            React.createElement('input', { type: 'number', className: 'form-control', id: 'tenor' }),
 	            React.createElement(
 	              'span',
-	              { 'class': 'input-group-addon' },
+	              { className: 'input-group-addon' },
 	              'bulan'
 	            )
 	          ),
 	          React.createElement(
 	            'label',
-	            { 'for': 'kerabat' },
+	            { htmlFor: 'kerabat' },
 	            'Kerabat'
 	          ),
 	          React.createElement(
 	            'div',
-	            { className: 'input-group' },
+	            { className: 'input-group col-xs-12' },
 	            React.createElement(
 	              'select',
 	              { className: 'form-control', id: 'kerabat' },
@@ -513,22 +521,22 @@
 	          ),
 	          React.createElement(
 	            'label',
-	            { 'for': 'alasan' },
+	            { htmlFor: 'alasan' },
 	            'Alasan Meminjam'
 	          ),
 	          React.createElement(
 	            'div',
-	            { className: 'input-group' },
+	            { className: 'input-group col-xs-12' },
 	            React.createElement('textarea', { className: 'form-control', id: 'alasan' })
 	          ),
 	          React.createElement(
 	            'button',
-	            { type: 'button', 'class': 'btn btn-default', id: 'cancel' },
+	            { type: 'button', className: 'btn btn-default', id: 'cancel' },
 	            'Batal'
 	          ),
 	          React.createElement(
 	            'button',
-	            { type: 'submit', 'class': 'btn btn-default', id: 'submit' },
+	            { type: 'submit', className: 'btn btn-success', id: 'submit' },
 	            'Pinjam'
 	          )
 	        )
@@ -541,40 +549,41 @@
 	var RequestList = React.createClass({
 	  displayName: 'RequestList',
 
-	  componentWillMount: function componentWillMount() {
-	    $.ajax({
-	      url: 'list-all-loan',
-	      data: {
-	        user_id: this.props.user.user_id
-	      },
-	      cache: false,
-	      type: 'POST',
-	      success: function success(event) {
-	        appState.user.requests = jQuery.parseJSON(event);
-	        this.props.update();
-	      }
-	    });
-	  },
+	  // componentWillMount: function(){
+	  //   var updateRequests = function(event) {
+	  //     appState.user.requests = event[0];
+	  //     //this.props.update(); 
+	  //   }
+	  //   $.ajax({
+	  //     url: 'list-all-loan',
+	  //     data:{
+	  //       user_id: this.props.user.user_id,
+	  //     }, 
+	  //     cache: false,
+	  //     type: 'POST',
+	  //     success: updateRequests,
+	  //   });
+	  // },
 	  render: function render() {
 	    var requests = this.props.user.requests.map(function (request) {
 	      return React.createElement(
 	        'div',
-	        { className: 'row requester' },
+	        { className: 'row requester', key: request.key },
 	        React.createElement(
 	          'div',
 	          { className: 'media' },
 	          React.createElement(
 	            'div',
 	            { className: 'media-left' },
-	            React.createElement('img', { 'class': 'media-object', src: request.user.picture })
+	            React.createElement('img', { className: 'media-object', src: request.picture })
 	          ),
 	          React.createElement(
 	            'div',
-	            { 'class': 'media-body' },
+	            { className: 'media-body' },
 	            React.createElement(
 	              'h4',
-	              { classname: 'media-heading' },
-	              request.user.name
+	              { className: 'media-heading' },
+	              request.name
 	            ),
 	            request.date
 	          )
@@ -584,12 +593,11 @@
 
 	    return React.createElement(
 	      'div',
-	      { className: 'col-xs-12' },
+	      { className: 'col-xs-12 col-sm-9 requests' },
 	      requests
 	    );
 	  }
 	});
->>>>>>> 7c909103ae204ad522923265e3c71ce39c23a3a0
 
 	// Render 
 	ReactDOM.render(React.createElement(App, null), document.getElementById('app-root'));
