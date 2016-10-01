@@ -175,9 +175,9 @@ def credit_mix(pinjaman):
             return 50
         if jenis_pinjaman == 4:
             return 60
-    credit_mix_dataframe['score'] = credit_mix_dataframe['loan_status'].apply(change_to_category_value)
+    credit_mix_dataframe['score'] = credit_mix_dataframe['purpose'].apply(change_to_category_value)
 #    print credit_mix_dataframe
-    credit_mix_score = credit_mix_dataframe[['lendee_id','loan_status','score']]
+    credit_mix_score = credit_mix_dataframe[['lendee_id','purpose','score']]
     return credit_mix_score
 
 
@@ -268,16 +268,16 @@ def insert_update_score(user_id,credit_score):
                "WHERE user_id = %s")
     update_score_table_loanrequest = ("UPDATE loanrequest SET credit_score = %s, updatedAt = %s"
                "WHERE lendee_id = %s")
-    update_loan_status = ("UPDATE loanrequest SET loan_status = %s, updatedAt = %s"
-               "WHERE lendee_id = %s")
+#    update_loan_status = ("UPDATE loanrequest SET loan_status = %s, updatedAt = %s"
+#               "WHERE lendee_id = %s")
     data_score_insert = (datetime.now(), datetime.now(), user_id,credit_score)
     data_score_update = (credit_score,datetime.now(),user_id)
-    if float(credit_score) >= 0.5:
-        data_loan_status = (3,datetime.now(),user_id)
-    else:
-        data_loan_status = (4,datetime.now(),user_id)
+#    if float(credit_score) >= 0.5:
+#        data_loan_status = (3,datetime.now(),user_id)
+#    else:
+#        data_loan_status = (4,datetime.now(),user_id)
 #    print user_id
-    cursor.execute(update_loan_status,data_loan_status)    
+#    cursor.execute(update_loan_status,data_loan_status)    
     if user_id in list_user_id:
         cursor.execute(update_score_table_creditscore,data_score_update)
         cursor.execute(update_score_table_loanrequest,data_score_update)        
@@ -328,15 +328,14 @@ def main(argv):
     list_cashier_id = list(score['cashier_id']) 
     list_score = list(score['total_score'])
     list_cashier_id = map(int, list_cashier_id)
+
     for x in range(len(list_cashier_id)):
         insert_update_score(list_cashier_id[x],list_score[x])
-#        print list_cashier_id[x]
-#        print list_score[x]
-#    output = StringIO()
-#    score.to_csv(output)
-#    output.seek(0)
-#    pt = prettytable.from_csv(output)
-#    print "Trust score: "+str(pt)
+    output = StringIO()
+    score.to_csv(output)
+    output.seek(0)
+    pt = prettytable.from_csv(output)
+    print "Trust score: "+str(pt)
     cursor.close()
     db_mysql.close()
 
