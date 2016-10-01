@@ -124,7 +124,7 @@ var Sidebar = React.createClass({
     for (var i = 0; i < 4; i ++){
       classes[i] = 'list-group-item';
       if (this.state.active === i){
-        classes[i] = classes[i] + 'list-group-item-active';
+        classes[i] = classes[i] + ' list-group-item-active';
       }
     }
     return(
