@@ -1,8 +1,7 @@
 module.exports = {
     
     getAllRequest: function(userId, next) {
-        // get profile
-        Loanrequest.find({lender_id: userId }).exec(function(err, loans) {
+        Loanrequest.find({lender_id: userId}).exec(function(err, loans) {
             if (err) throw err;
             next(loans);
         });
