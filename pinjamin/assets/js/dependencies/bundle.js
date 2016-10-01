@@ -56,45 +56,45 @@
 	    debtors: [{
 	      key: 1,
 	      picture: '/assets/img/a.jpg',
-	      name: 'a',
+	      name: 'Albert',
 	      debt: '5000'
 	    }, {
 	      key: 2,
 	      picture: '/assets/img/b.jpg',
-	      name: 'b',
+	      name: 'Budiman',
 	      debt: '5000'
 	    }],
 	    creditors: [{
 	      key: 1,
 	      picture: '/assets/img/c.jpg',
-	      name: 'c',
+	      name: 'Cynthia',
 	      credit: '500'
 	    }],
 	    kerabat: [{
 	      key: 0,
 	      picture: '/assets/img/a.jpg',
-	      name: 'a',
+	      name: 'Agung',
 	      email: 'a@aaa.com'
 	    }, {
 	      key: 1,
 	      picture: '/assets/img/b.jpg',
-	      name: 'b',
+	      name: 'Bella',
 	      email: 'b@bbb.net'
 	    }, {
 	      key: 2,
 	      picture: '/assets/img/c.jpg',
-	      name: 'c',
+	      name: 'Catherine',
 	      email: 'c@ccc.org'
 	    }],
 	    requests: [{
 	      key: 0,
 	      picture: '/assets/img/d.jpg',
-	      name: 'd',
+	      name: 'Doni',
 	      date: '1 Februari 2016'
 	    }, {
 	      key: 1,
 	      picture: '/assets/img/e.jpg',
-	      name: 'e',
+	      name: 'Erma',
 	      date: '7 Juli 2016'
 	    }]
 	  }
@@ -487,7 +487,7 @@
 	          ),
 	          React.createElement(
 	            'div',
-	            { className: 'input-group' },
+	            { className: 'input-group col-xs-12' },
 	            React.createElement('input', { type: 'text', className: 'form-control', id: 'jumlah-saldo', placeholder: 'Jumlah Saldo' })
 	          ),
 	          React.createElement(
@@ -497,7 +497,7 @@
 	          ),
 	          React.createElement(
 	            'div',
-	            { className: 'input-group' },
+	            { className: 'input-group col-xs-12' },
 	            React.createElement('input', { type: 'number', className: 'form-control', id: 'tenor' }),
 	            React.createElement(
 	              'span',
@@ -512,7 +512,7 @@
 	          ),
 	          React.createElement(
 	            'div',
-	            { className: 'input-group' },
+	            { className: 'input-group col-xs-12' },
 	            React.createElement(
 	              'select',
 	              { className: 'form-control', id: 'kerabat' },
@@ -526,7 +526,7 @@
 	          ),
 	          React.createElement(
 	            'div',
-	            { className: 'input-group' },
+	            { className: 'input-group col-xs-12' },
 	            React.createElement('textarea', { className: 'form-control', id: 'alasan' })
 	          ),
 	          React.createElement(
@@ -536,7 +536,7 @@
 	          ),
 	          React.createElement(
 	            'button',
-	            { type: 'submit', className: 'btn btn-default', id: 'submit' },
+	            { type: 'submit', className: 'btn btn-success', id: 'submit' },
 	            'Pinjam'
 	          )
 	        )

@@ -43,3 +43,7 @@
 .kerabat, .requests, .form-pinjam{
   display: none;
 }
+
+form {
+  padding: 10px;
+}

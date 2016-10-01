@@ -9,13 +9,13 @@ var appState = {
       {
         key: 1,
         picture: '/assets/img/a.jpg',
-        name: 'a',
+        name: 'Albert',
         debt: '5000'
       },
       {
         key: 2,
         picture: '/assets/img/b.jpg',
-        name: 'b',
+        name: 'Budiman',
         debt: '5000'
       }
     ],
@@ -23,7 +23,7 @@ var appState = {
       {
         key: 1,
         picture: '/assets/img/c.jpg',
-        name: 'c',
+        name: 'Cynthia',
         credit: '500'
       }
     ],
@@ -31,19 +31,19 @@ var appState = {
       {
         key: 0,
         picture: '/assets/img/a.jpg',
-        name: 'a',
+        name: 'Agung',
         email: 'a@aaa.com'
       },
       {
         key: 1,
         picture: '/assets/img/b.jpg',
-        name: 'b',
+        name: 'Bella',
         email: 'b@bbb.net'
       },
       {
         key: 2,
         picture: '/assets/img/c.jpg',
-        name: 'c',
+        name: 'Catherine',
         email: 'c@ccc.org'
       }
     ],
@@ -51,13 +51,13 @@ var appState = {
       {
         key: 0,
         picture: '/assets/img/d.jpg',
-        name: 'd',
+        name: 'Doni',
         date: '1 Februari 2016'
       },
       {
         key: 1,
         picture: '/assets/img/e.jpg',
-        name: 'e',
+        name: 'Erma',
         date: '7 Juli 2016'
       }
     ],
@@ -316,26 +316,26 @@ var FormPinjam = React.createClass({
         <div className="row form-container">
           <form>
             <label htmlFor="jumlah-saldo">Jumlah Saldo</label>
-            <div className="input-group">
+            <div className="input-group col-xs-12">
               <input type="text" className="form-control" id="jumlah-saldo" placeholder="Jumlah Saldo" />
             </div>
             <label htmlFor="tenor">Tenor</label>
-            <div className="input-group">
+            <div className="input-group col-xs-12">
               <input type="number" className="form-control" id="tenor" />
               <span className="input-group-addon">bulan</span>
             </div>
             <label htmlFor="kerabat">Kerabat</label>
-            <div className="input-group">
+            <div className="input-group col-xs-12">
               <select className="form-control" id="kerabat">
                 {kerabats}
               </select>
             </div>
             <label htmlFor="alasan">Alasan Meminjam</label>
-            <div className="input-group">
+            <div className="input-group col-xs-12">
               <textarea className="form-control" id="alasan" />
             </div>
             <button type="button" className="btn btn-default" id="cancel">Batal</button>
-            <button type="submit" className="btn btn-default" id="submit">Pinjam</button>
+            <button type="submit" className="btn btn-success" id="submit">Pinjam</button>
           </form>
         </div>
       </div>
