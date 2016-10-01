@@ -55,45 +55,45 @@
 	    debt: '100',
 	    debtors: [{
 	      key: 1,
-	      picture: '/assets/img/a.jpg',
+	      picture: '/img/a.jpg',
 	      name: 'Albert',
 	      debt: '5000'
 	    }, {
 	      key: 2,
-	      picture: '/assets/img/b.jpg',
+	      picture: '/img/b.jpg',
 	      name: 'Budiman',
 	      debt: '5000'
 	    }],
 	    creditors: [{
 	      key: 1,
-	      picture: '/assets/img/c.jpg',
+	      picture: '/img/c.jpg',
 	      name: 'Cynthia',
 	      credit: '500'
 	    }],
 	    kerabat: [{
 	      key: 0,
-	      picture: '/assets/img/a.jpg',
+	      picture: '/img/a.jpg',
 	      name: 'Agung',
 	      email: 'a@aaa.com'
 	    }, {
 	      key: 1,
-	      picture: '/assets/img/b.jpg',
+	      picture: '/img/b.jpg',
 	      name: 'Bella',
 	      email: 'b@bbb.net'
 	    }, {
 	      key: 2,
-	      picture: '/assets/img/c.jpg',
+	      picture: '/img/c.jpg',
 	      name: 'Catherine',
 	      email: 'c@ccc.org'
 	    }],
 	    requests: [{
 	      key: 0,
-	      picture: '/assets/img/d.jpg',
+	      picture: '/img/d.jpg',
 	      name: 'Doni',
 	      date: '1 Februari 2016'
 	    }, {
 	      key: 1,
-	      picture: '/assets/img/e.jpg',
+	      picture: '/img/e.jpg',
 	      name: 'Erma',
 	      date: '7 Juli 2016'
 	    }]
