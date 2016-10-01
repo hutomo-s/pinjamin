@@ -52,7 +52,7 @@
 	    name: 'Gunawan',
 	    user_id: 10,
 	    credit: '10000',
-	    debt: '100',
+	    debt: '500',
 	    debtors: [{
 	      key: 1,
 	      picture: '/img/a.jpg',
@@ -60,7 +60,7 @@
 	      debt: '5000'
 	    }, {
 	      key: 2,
-	      picture: '/img/b.jpg',
+	      picture: '/img/2.jpg',
 	      name: 'Budiman',
 	      debt: '5000'
 	    }],
@@ -77,7 +77,7 @@
 	      email: 'a@aaa.com'
 	    }, {
 	      key: 1,
-	      picture: '/img/b.jpg',
+	      picture: '/img/2.jpg',
 	      name: 'Bella',
 	      email: 'b@bbb.net'
 	    }, {

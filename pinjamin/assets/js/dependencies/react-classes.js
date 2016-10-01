@@ -14,7 +14,7 @@ var appState = {
       },
       {
         key: 2,
-        picture: '/img/b.jpg',
+        picture: '/img/2.jpg',
         name: 'Budiman',
         debt: '5000'
       }
@@ -36,7 +36,7 @@ var appState = {
       },
       {
         key: 1,
-        picture: '/img/b.jpg',
+        picture: '/img/2.jpg',
         name: 'Bella',
         email: 'b@bbb.net'
       },
