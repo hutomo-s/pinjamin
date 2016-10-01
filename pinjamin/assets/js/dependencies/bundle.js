@@ -42,17 +42,6 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-<<<<<<< HEAD
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(1);
-	(function webpackMissingModule() { throw new Error("Cannot find module \"stop\""); }());
-
-
-/***/ },
-/* 1 */
-=======
->>>>>>> 7c909103ae204ad522923265e3c71ce39c23a3a0
 /***/ function(module, exports) {
 
 	'use strict';
@@ -126,7 +115,6 @@
 	  render: function render() {
 	    var _this = this;
 
-	    console.log('rendering main');
 	    if (this.state.activeWindow === 0) {
 	      $('.dashboard').show();
 	      $('.kerabat').hide();
@@ -261,11 +249,7 @@
 	            { className: 'panel panel-success' },
 	            React.createElement(
 	              'div',
-<<<<<<< HEAD
-	              { className: 'panel-heading' },
-=======
 	              { className: 'panel-heading credit-display' },
->>>>>>> 7c909103ae204ad522923265e3c71ce39c23a3a0
 	              'Piutang'
 	            ),
 	            React.createElement(
@@ -288,11 +272,7 @@
 	            { className: 'panel panel-warning' },
 	            React.createElement(
 	              'div',
-<<<<<<< HEAD
-	              { className: 'panel-heading' },
-=======
 	              { className: 'panel-heading debt-display' },
->>>>>>> 7c909103ae204ad522923265e3c71ce39c23a3a0
 	              'Hutang'
 	            ),
 	            React.createElement(
@@ -330,19 +310,6 @@
 	            React.createElement(
 	              'div',
 	              { className: 'media-left' },
-<<<<<<< HEAD
-	              React.createElement('img', { className: 'media-object', src: debtor.picture }),
-	              React.createElement(
-	                'div',
-	                { className: 'media-body' },
-	                React.createElement(
-	                  'h4',
-	                  { className: 'media-heading' },
-	                  debtor.name
-	                ),
-	                debtor.debt
-	              )
-=======
 	              React.createElement('img', { className: 'media-object', src: debtor.picture })
 	            ),
 	            React.createElement(
@@ -354,7 +321,6 @@
 	                debtor.name
 	              ),
 	              debtor.debt
->>>>>>> 7c909103ae204ad522923265e3c71ce39c23a3a0
 	            )
 	          )
 	        )
@@ -386,19 +352,6 @@
 	            React.createElement(
 	              'div',
 	              { className: 'media-left' },
-<<<<<<< HEAD
-	              React.createElement('img', { className: 'media-object', src: creditor.picture }),
-	              React.createElement(
-	                'div',
-	                { className: 'media-body' },
-	                React.createElement(
-	                  'h4',
-	                  { className: 'media-heading' },
-	                  creditor.name
-	                ),
-	                creditor.credit
-	              )
-=======
 	              React.createElement('img', { className: 'media-object', src: creditor.picture })
 	            ),
 	            React.createElement(
@@ -410,7 +363,6 @@
 	                creditor.name
 	              ),
 	              creditor.credit
->>>>>>> 7c909103ae204ad522923265e3c71ce39c23a3a0
 	            )
 	          )
 	        )
@@ -424,12 +376,6 @@
 	  }
 	});
 
-<<<<<<< HEAD
-	// // Kerabat
-	// var Kerabat = React.createClass({
-
-	// })
-=======
 	// Kerabat
 	var Kerabat = React.createClass({
 	  displayName: 'Kerabat',
@@ -652,7 +598,6 @@
 	    );
 	  }
 	});
->>>>>>> 7c909103ae204ad522923265e3c71ce39c23a3a0
 
 	// Render 
 	ReactDOM.render(React.createElement(App, null), document.getElementById('app-root'));
