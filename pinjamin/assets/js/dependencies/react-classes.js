@@ -1,6 +1,8 @@
 var appState = {
   activeWindow: 0,
   user: {
+    name: 'Gunawan',
+    user_id: 10,
     credit: '10000',
     debt: '100',
     debtors: [
@@ -24,7 +26,41 @@ var appState = {
         name: 'c',
         credit: '500'
       }
-    ]
+    ],
+    kerabat: [
+      {
+        key: 0,
+        picture: '/assets/img/a.jpg',
+        name: 'a',
+        email: 'a@aaa.com'
+      },
+      {
+        key: 1,
+        picture: '/assets/img/b.jpg',
+        name: 'b',
+        email: 'b@bbb.net'
+      },
+      {
+        key: 2,
+        picture: '/assets/img/c.jpg',
+        name: 'c',
+        email: 'c@ccc.org'
+      }
+    ],
+    requests: [
+      {
+        key: 0,
+        picture: '/assets/img/d.jpg',
+        name: 'd',
+        date: '1 Februari 2016'
+      },
+      {
+        key: 1,
+        picture: '/assets/img/e.jpg',
+        name: 'e',
+        date: '7 Juli 2016'
+      }
+    ],
   }
 }
 
@@ -34,24 +70,40 @@ var App = React.createClass({
     return(appState);
   },
   updateState: function(){
+    console.log(this.state);
     this.setState(appState);
+    this.forceUpdate();
   },
   render: function(){
-    var activeContent = '';
     if (this.state.activeWindow === 0) {
-      activeContent = <Dashboard user={this.state.user} update={this.updateState}/>;
+      $('.dashboard').show();
+      $('.kerabat').hide();
+      $('.form-pinjam').hide();
+      $('.requests').hide();
     } else if (this.state.activeWindow === 1) {
-      activeContent = <Kerabat user={this.state.user} update={this.updateState}/>;
+      $('.kerabat').show();
+      $('.dashboard').hide();
+      $('.form-pinjam').hide();
+      $('.requests').hide();
     } else if (this.state.activeWindow === 2) {
-      activeContent = <FormPinjam user={this.state.user} update={this.updateState}/>;
+      $('.form-pinjam').show();
+      $('.dashboard').hide();
+      $('.kerabat').hide();
+      $('.requests').hide();
     } else if (this.state.activeWindow === 3) {
-      activeContent = <RequestList user={this.state.user} update={this.updateState}/>;
+      $('.form-pinjam').hide();
+      $('.dashboard').hide();
+      $('.kerabat').hide();
+      $('.requests').show();
     }
 
     return(
       <div>
         <Sidebar update={this.updateState} />
-        {activeContent}
+        <Dashboard user={this.state.user} update={() => this.updateState}/>
+        <Kerabat user={this.state.user} update={() => this.updateState}/>
+        <FormPinjam user={this.state.user} update={() => this.updateState}/>
+        <RequestList user={this.state.user} update={() => this.updateState}/>
       </div>
     )
   }
@@ -98,7 +150,7 @@ var Sidebar = React.createClass({
 var Dashboard = React.createClass({
   render: function(){
     return(
-      <div className="col-xs-12 col-sm-9">
+      <div className="col-xs-12 col-sm-9 dashboard">
         <div className="row">
           <div className="col-xs-12 col-sm-6 money-panel">
             <div className="panel panel-success">
@@ -182,102 +234,108 @@ var Creditors = React.createClass({
 
 // Kerabat
 var Kerabat = React.createClass({
-  componentWillMount: function() {
-    $.ajax({
-      url: 'list-kerabat',
-      data:{
-        user_id: this.props.user.user_id,
-      }, 
-      cache: false,
-      type: 'POST',
-      success: function(event){
-        appState.user.kerabat = jQuery.parseJSON(event);
-        this.props.update(); 
-      }
-    });
-  },
-  handleClick: function() {
-    //TODO send ajax
-  },
+  // componentWillMount: function() {
+  //   var updateKerabat = function(event){
+  //     appState.user.kerabat = event[0];
+  //     for (var i = 0; i < appState.user.kerabat.length; i ++) {
+  //       appState.user.kerabat.key = i;
+  //     }
+  //     this.props.update(); 
+  //   }
+  //   $.ajax({
+  //     url: 'list-kerabat',
+  //     data:{
+  //       user_id: this.props.user.user_id,
+  //     }, 
+  //     cache: false,
+  //     type: 'POST',
+  //     success: updateKerabat.bind(this),
+  //   });
+  // },
+  // handleClick: function() {
+  //   //TODO send ajax
+  // },
   render: function() {
+    console.log(this.props.user.kerabat);
     var kerabats = this.props.user.kerabat.map(function(kerabat){
       var details = '';
       if (kerabat.opened === true){
         // print details
       }
+      console.log('hi');
       return(
-        <div className="col-xs-12">
-          <div className="row kerabat">
-            <div className="media">
-              <div className="media-left">
-                <img className="media-object" src={kerabat.picture} />
-              </div>
-              <div className="media-body">
-                <h4 className="media-header">{kerabat.name}</h4>
-                {kerabat.email}
-              </div>
+        <div className="row kerabat" key={kerabat.key}>
+          <div className="media">
+            <div className="media-left">
+              <img className="media-object" src={kerabat.picture} />
+            </div>
+            <div className="media-body">
+              <h4 className="media-header">{kerabat.name}</h4>
+              {kerabat.email}
             </div>
           </div>
         </div>
       );
     });
-
     return(
-      {kerabats}
+      <div className="col-xs-12 col-sm-9">
+        {kerabats}
+      </div>
     );
   }  
 });
 
 // FormPinjam
 var FormPinjam = React.createClass({
-  handleSubmit: function(event){
-    // TODO
-  },
-  componentWillMount: function(){
-    $.ajax({
-      url: 'list-kerabat',
-      data:{
-        user_id: this.props.user.user_id,
-      }, 
-      cache: false,
-      type: 'POST',
-      success: function(event){
-        appState.user.kerabat = jQuery.parseJSON(event);
-        this.props.update(); 
-      }
-    });
-  },
+  // handleSubmit: function(event){
+  //   // TODO
+  // },
+  // componentWillMount: function(){
+  //   var updateKerabat = function(event){
+  //     appState.user.kerabat = event[0];
+  //     this.props.update(); 
+  //   }
+  //   $.ajax({
+  //     url: 'list-kerabat',
+  //     data:{
+  //       user_id: this.props.user.user_id,
+  //     }, 
+  //     cache: false,
+  //     type: 'POST',
+  //     success: updateKerabat,
+  //   });
+  // },
   render: function(){
     var kerabats = this.props.user.kerabat.map(function(kerabat){
       return(
-        <option value={kerabat.user_id}>{kerabat.name}</option>
+        <option value={kerabat.user_id} key={kerabat.key}>{kerabat.name}</option>
       );
     });
     return(
-      <div className="col-xs-12">
+      <div className="col-xs-12 col-sm-9 form-pinjam">
         <div className="row form-container">
           <form>
-            <label for="jumlah-saldo">Jumlah Saldo</label>
+            <label htmlFor="jumlah-saldo">Jumlah Saldo</label>
             <div className="input-group">
               <input type="text" className="form-control" id="jumlah-saldo" placeholder="Jumlah Saldo" />
             </div>
-            <label for="tenor">Tenor</label>
+            <label htmlFor="tenor">Tenor</label>
             <div className="input-group">
               <input type="number" className="form-control" id="tenor" />
-              <span class="input-group-addon">bulan</span>
+              <span className="input-group-addon">bulan</span>
             </div>
-            <label for="kerabat">Kerabat</label>
+            <label htmlFor="kerabat">Kerabat</label>
             <div className="input-group">
               <select className="form-control" id="kerabat">
                 {kerabats}
               </select>
             </div>
-            <label for="alasan">Alasan Meminjam</label>
+            <label htmlFor="alasan">Alasan Meminjam</label>
             <div className="input-group">
               <textarea className="form-control" id="alasan" />
             </div>
-            <button type="button" class="btn btn-default" id="cancel">Batal</button>
-            <button type="submit" class="btn btn-default" id="submit">Pinjam</button>
+            <button type="button" className="btn btn-default" id="cancel">Batal</button>
+            <button type="submit" className="btn btn-default" id="submit">Pinjam</button>
           </form>
         </div>
       </div>
@@ -287,30 +345,31 @@ var FormPinjam = React.createClass({
 
 // Requests
 var RequestList = React.createClass({
-  componentWillMount: function(){
-    $.ajax({
-      url: 'list-all-loan',
-      data:{
-        user_id: this.props.user.user_id,
-      }, 
-      cache: false,
-      type: 'POST',
-      success: function(event){
-        appState.user.requests = jQuery.parseJSON(event);
-        this.props.update(); 
-      }
-    });
-  },
+  // componentWillMount: function(){
+  //   var updateRequests = function(event) {
+  //     appState.user.requests = event[0];
+  //     //this.props.update(); 
+  //   }
+  //   $.ajax({
+  //     url: 'list-all-loan',
+  //     data:{
+  //       user_id: this.props.user.user_id,
+  //     }, 
+  //     cache: false,
+  //     type: 'POST',
+  //     success: updateRequests,
+  //   });
+  // },
   render: function(){
     var requests = this.props.user.requests.map(function(request){
       return(
-        <div className="row requester">
+        <div className="row requester" key={request.key}>
           <div className="media">
             <div className="media-left">
-              <img class="media-object" src={request.user.picture} />
+              <img className="media-object" src={request.picture} />
             </div>
-            <div class="media-body">
-              <h4 classname="media-heading">{request.user.name}</h4>
+            <div className="media-body">
+              <h4 className="media-heading">{request.name}</h4>
               {request.date}
             </div>
           </div>
@@ -319,7 +378,7 @@ var RequestList = React.createClass({
     });
 
     return(
-      <div className="col-xs-12">
+      <div className="col-xs-12 col-sm-9 requests">
         {requests}
       </div>
     )

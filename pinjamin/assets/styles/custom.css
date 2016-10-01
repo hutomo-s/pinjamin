@@ -39,3 +39,7 @@
 .media {
   padding-top: 5px;
 }
+
+.kerabat, .requests, .form-pinjam{
+  display: none;
+}
